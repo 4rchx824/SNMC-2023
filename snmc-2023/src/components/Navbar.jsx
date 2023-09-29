@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { UserIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function Navbar() {
+    const location = useLocation();
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    useEffect(() => {
+        if (!localStorage.getItem("auth") === false) setIsLoggedIn(true);
+        else setIsLoggedIn(false);
+    }, [location.pathname]);
+
     return (
         <div className="navbar bg-base-300 px-4 shadow-md">
             <div className="flex-1">
@@ -31,6 +39,13 @@ function Navbar() {
                     </a>
                 </>
             </div>
+
+            <Link
+                to={`${isLoggedIn ? "/admin" : "/login"}`}
+                className="btn btn-ghost"
+            >
+                {isLoggedIn ? "Admin" : "Login"}
+            </Link>
         </div>
     );
 }

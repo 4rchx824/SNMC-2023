@@ -61,7 +61,6 @@ function Login() {
     };
 
     useEffect(() => {
-        console.log(!localStorage.getItem("auth"));
         if (!user === false && !localStorage.getItem("auth") === false) {
             setUser(localStorage.getItem("auth"));
             navigate("/");

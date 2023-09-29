@@ -9,8 +9,15 @@ import {
     ArrowLeftOnRectangleIcon,
     HomeIcon,
 } from "@heroicons/react/24/outline";
+import { useAuth } from "../context/auth";
 
 function SideNavbar() {
+    const { setUser } = useAuth();
+    const handleLogout = () => {
+        setUser({});
+        localStorage.clear();
+        navigate("/login");
+    };
     return (
         <div className="bg-base-200 sticky top-0 h-screen px-4 py-4 flex flex-col items-center justify-between max-w-[15rem] w-full">
             <div className="flex flex-col items-center justify-center space-y-2 w-full">
@@ -50,7 +57,7 @@ function SideNavbar() {
                 </SideNavItem>
             </div>
 
-            <button className="btn btn-ghost w-full">
+            <button className="btn btn-ghost w-full" onClick={handleLogout}>
                 <div className="flex items-center justify-between w-full space-x-2">
                     <h1>Logout</h1>
                     <ArrowLeftOnRectangleIcon className="w-6 h-6" />
