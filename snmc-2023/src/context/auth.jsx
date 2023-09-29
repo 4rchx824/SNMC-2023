@@ -14,6 +14,10 @@ export const AuthProvider = ({ children }) => {
         else return {};
     });
 
+    useEffect(() => {
+        console.log(user);
+    }, [user]);
+
     return (
         <AuthContext.Provider value={{ user, setUser }}>
             {children}

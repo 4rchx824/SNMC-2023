@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import useAxiosPrivate from "../../hooks/axios";
 import Loading from "../Loading";
 import CompetitorTable from "./subcomponents/CompetitorTable";
+import { CalculatorBlock } from "../../pages/Calculator";
 
 function Scores() {
     const axios = useAxiosPrivate();
@@ -64,6 +65,7 @@ function Scores() {
             </GeneralModal>
             <div className="flex flex-col flex-grow">
                 <SelectedEvent event_id={selectedEvent} />
+                <CalculatorBlock />
                 <div className="flex items-end justify-center space-x-4 pt-8">
                     <div className="form-control max-w-lg w-full">
                         {isLoading ? (

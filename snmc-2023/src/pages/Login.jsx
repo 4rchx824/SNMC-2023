@@ -45,10 +45,13 @@ function Login() {
             if (!data.uuid || !data.accessToken)
                 throw new Error("An unexpected error has occured!");
 
-            setUser(data.uuid);
+            setUser({
+                uuid: data.uuid,
+                accessToken: data.accessToken,
+            });
             localStorage.setItem("auth", data.accessToken);
 
-            navigate("/");
+            navigate(data.role === "ADMIN" ? "/admin" : "/");
         } catch (e) {
             console.error(e);
             if (e?.response?.data?.message || e?.message)

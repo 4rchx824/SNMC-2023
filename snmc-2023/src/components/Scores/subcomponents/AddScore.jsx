@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import Loading from "../../Loading";
 import { XCircleIcon, CheckCircleIcon } from "@heroicons/react/24/outline";
 import useAxiosPrivate from "../../../hooks/axios";
+import Calculator from "../../../pages/Calculator";
 
 function AddScore({ event_id, setAddScoreOpen, isOpen }) {
     const axios = useAxiosPrivate();

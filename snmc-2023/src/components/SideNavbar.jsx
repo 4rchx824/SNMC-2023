@@ -2,7 +2,7 @@ import React from "react";
 import SideNavItem from "./SideNavItem";
 
 import {
-    ChartPieIcon,
+    CalculatorIcon,
     UsersIcon,
     CalendarIcon,
     TrophyIcon,
@@ -23,8 +23,8 @@ function SideNavbar() {
             <div className="flex flex-col items-center justify-center space-y-2 w-full">
                 <SideNavItem to="/" isAdmin={true}>
                     <div className="flex items-center justify-start w-full space-x-2">
-                        <ChartPieIcon className="w-6 h-6" />
-                        <h1 className="">Dashboard</h1>
+                        <CalculatorIcon className="w-6 h-6" />
+                        <h1 className="">Calculator</h1>
                     </div>
                 </SideNavItem>
                 <div className="divider"></div>

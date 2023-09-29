@@ -8,7 +8,7 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 
-import Dashboard from "./pages/Dashboard";
+import Calculator from "./pages/Calculator";
 import Users from "./pages/Users";
 import Events from "./pages/Events";
 import Scores from "./pages/Scores";
@@ -29,7 +29,7 @@ const router = (
 
                 <Route element={<PersistLogin allowedRoles={["ADMIN"]} />}>
                     <Route path="/admin" element={<AdminLayout />}>
-                        <Route index element={<Dashboard />} />
+                        <Route index element={<Calculator />} />
                         <Route path="/admin/users" element={<Users />} />
                         <Route path="/admin/events" element={<Events />} />
                         <Route path="/admin/scores" element={<Scores />} />
