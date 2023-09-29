@@ -1,7 +1,7 @@
 import {
     ChartBarIcon,
     ListBulletIcon,
-    ClockIcon
+    ClockIcon,
 } from "@heroicons/react/24/outline";
 
 import Current from "../components/Home/Current";
@@ -19,23 +19,23 @@ const Home = () => {
     const Pages = {
         Current: <Current />,
         Overall: <Overall />,
-        Others: <Others />
+        Others: <Others />,
     };
 
     const Icons = {
         Current: <ClockIcon className="w-4 h-4 mr-2" />,
         Overall: <ChartBarIcon className="w-4 h-4 mr-2" />,
-        Others: <ListBulletIcon className="w-4 h-4 mr-2" />
+        Others: <ListBulletIcon className="w-4 h-4 mr-2" />,
     };
 
     return (
         <div className="flex flex-grow flex-col w-full">
             <div className="p-4 self-center">
-                <div className="tabs">
+                <div className="tabs max-w-sm w-full">
                     {Object.keys(Pages).map((tabName) => (
                         <button
                             key={tabName}
-                            className={`tab tab-bordered transition-all outline-none ${
+                            className={`tab tab-bordered transition-all outline-none tab-sm ${
                                 activeTab === tabName
                                     ? "tab-active text-primary"
                                     : ""
