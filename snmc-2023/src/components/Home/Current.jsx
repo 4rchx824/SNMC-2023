@@ -52,7 +52,7 @@ function Current() {
 
     useEffect(() => {
         fetchCurrent();
-        getStanding();
+        if (current.status === "Completed") getStanding();
 
         const currentFetch = setInterval(() => fetchCurrent(), 5000);
         const standingFetch = setInterval(() => {
