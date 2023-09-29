@@ -33,6 +33,9 @@ app.use(
 // app.use("/auth", require("./routes/auth"));
 // app.use("/refresh", require("./routes/refresh"));
 // app.use("/logout", require("./routes/logout"));
+app.get("/ping", (req, res) => {
+    res.status(200).send("pong");
+});
 
 app.use("/auth", require("./routes/auth"));
 app.use("/leaderboard", require("./routes/api/leaderboard"));
@@ -42,10 +45,6 @@ app.use("/verify", require("./routes/verify"));
 app.use("/users", require("./routes/api/users"));
 app.use("/events", require("./routes/api/events"));
 app.use("/scores", require("./routes/api/scores"));
-
-app.get("/ping", (req, res) => {
-    res.status(200).send("pong");
-});
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
