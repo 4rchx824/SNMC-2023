@@ -56,7 +56,7 @@ function Others() {
                 `/leaderboard/${selectedEvent}/standings`
             );
 
-            if (event.status === "Completed") setStandings(data);
+            setStandings(data);
         } catch (e) {
             console.error(e);
             setShowErr(true);
@@ -70,7 +70,7 @@ function Others() {
             getEvent();
             getStandings();
         }
-    }, [selectedEvent]);
+    }, [selectedEvent, ]);
 
     useEffect(() => {
         getAllEvents();
@@ -112,7 +112,7 @@ function Others() {
                         </select>
                     </div>
                     <EventInfo event={event} />
-                    <Podium standings={standings} />
+                    <Podium standings={standings} event={event} />
                     <Table standings={standings} event={event} />
                 </div>
             )}

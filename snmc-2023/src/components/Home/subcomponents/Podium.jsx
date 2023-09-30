@@ -1,9 +1,12 @@
 import React from "react";
 
-function Podium({ standings }) {
-    let first = standings[0] ?? null;
-    let second = standings[1] ?? null;
-    let third = standings[2] ?? null;
+function Podium({ standings, event }) {
+    let first, second, third;
+    if (event?.status === "Completed") {
+        first = standings[0] ?? null;
+        second = standings[1] ?? null;
+        third = standings[2] ?? null;
+    }
 
     return (
         <div className="flex items-end justify-center w-full max-w-sm lg:max-w-xl">

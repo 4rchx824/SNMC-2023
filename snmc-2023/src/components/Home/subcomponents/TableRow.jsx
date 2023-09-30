@@ -26,17 +26,21 @@ function TableRow({ user, standing, event }) {
                 <th className="text-gray-400 text-center">{user.score} </th>
             )}
 
-            <th>
-                <h1
-                    className={`text-center ${
-                        event === "All" ? "font-normal" : ""
-                    }`}
-                >
-                    {event === "All"
-                        ? user.total_pts_attained
-                        : user.pts_attained}
-                </h1>
-            </th>
+            {true ? (
+                ""
+            ) : (
+                <th>
+                    <h1
+                        className={`text-center ${
+                            event === "All" ? "font-normal" : ""
+                        }`}
+                    >
+                        {event === "All"
+                            ? user.total_pts_attained
+                            : user.pts_attained}
+                    </h1>
+                </th>
+            )}
         </tr>
     );
 }
