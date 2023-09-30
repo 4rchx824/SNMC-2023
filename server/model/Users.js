@@ -30,6 +30,8 @@ const users = {
 
             const [rows, cols] = await conn.query(query, [event_id]);
 
+            console.log(rows)
+
             return rows;
         } catch (e) {
             console.error(e);

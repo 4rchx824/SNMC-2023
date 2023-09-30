@@ -34,6 +34,10 @@ export default function CompetitorComboBox({
         try {
             const { data } = await axios.get(`/users/${event_id}/eligible`);
 
+
+            console.log(event_id)
+            console.log(data)
+
             setPeople(data);
         } catch (e) {
             console.error(e);

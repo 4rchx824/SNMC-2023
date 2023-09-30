@@ -56,7 +56,7 @@ function Others() {
                 `/leaderboard/${selectedEvent}/standings`
             );
 
-            setStandings(data);
+            if (event.status === "Completed") setStandings(data);
         } catch (e) {
             console.error(e);
             setShowErr(true);

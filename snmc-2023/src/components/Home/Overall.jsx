@@ -17,7 +17,7 @@ function Overall() {
         try {
             const { data } = await axios.get("/leaderboard/overall");
 
-            setStandings(data);
+            setStandings([]);
         } catch (e) {
             console.error(e);
             setShowErr(true);
