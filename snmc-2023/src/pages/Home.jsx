@@ -18,13 +18,13 @@ const Home = () => {
 
     const Pages = {
         Current: <Current />,
-        Overall: <Overall />,
+        // Overall: <Overall />,
         Others: <Others />,
     };
 
     const Icons = {
         Current: <ClockIcon className="w-4 h-4 mr-2" />,
-        Overall: <ChartBarIcon className="w-4 h-4 mr-2" />,
+        // Overall: <ChartBarIcon className="w-4 h-4 mr-2" />,
         Others: <ListBulletIcon className="w-4 h-4 mr-2" />,
     };
 
