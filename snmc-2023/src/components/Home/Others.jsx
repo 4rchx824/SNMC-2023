@@ -70,7 +70,7 @@ function Others() {
             getEvent();
             getStandings();
         }
-    }, [selectedEvent, ]);
+    }, [selectedEvent]);
 
     useEffect(() => {
         getAllEvents();

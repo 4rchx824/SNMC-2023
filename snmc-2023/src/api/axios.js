@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = import.meta.env.REACT_APP_BACKEND_URL || "https://snmc-server.onrender.com";
+const BASE_URL = import.meta.env.VITE_APP_BACKEND || "https://snmc-server.onrender.com";
 
 export default axios.create({
     baseURL: BASE_URL,

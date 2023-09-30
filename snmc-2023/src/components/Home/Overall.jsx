@@ -17,7 +17,7 @@ function Overall() {
         try {
             const { data } = await axios.get("/leaderboard/overall");
 
-            setStandings([]);
+            setStandings(data);
         } catch (e) {
             console.error(e);
             setShowErr(true);
@@ -49,7 +49,10 @@ function Overall() {
                     <h1 className="text-3xl text-primary font-bold text-center">
                         Overall Championship Points
                     </h1>
-                    <Podium standings={standings} />
+                    <Podium
+                        standings={standings}
+                        event={{ status: "Completed" }}
+                    />
                     <Table standings={standings} event={{ status: "All" }} />
                 </div>
             )}

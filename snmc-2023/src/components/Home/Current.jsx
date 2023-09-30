@@ -63,7 +63,7 @@ function Current() {
             clearInterval(currentFetch);
             clearInterval(standingFetch);
         };
-    }, []);
+    }, [current.status]);
 
     return (
         <>
@@ -77,7 +77,7 @@ function Current() {
             ) : (
                 <div className="flex-grow flex flex-col items-center space-y-8 pb-12">
                     <EventInfo event={current} />
-                    <Podium standings={standings} />
+                    <Podium standings={standings} event={current} />
                     <Table standings={standings} event={current} />
                 </div>
             )}

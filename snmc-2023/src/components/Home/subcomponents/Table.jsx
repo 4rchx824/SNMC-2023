@@ -26,15 +26,12 @@ function Table({ standings, event }) {
                                 ) : (
                                     <th>Raw Score</th>
                                 )}
-                                {event.status !== "All" ? (
-                                    ""
-                                ) : (
-                                    <th>
-                                        {event.status === "All"
-                                            ? "Total Championship Points"
-                                            : "Points Attained"}
-                                    </th>
-                                )}
+
+                                <th>
+                                    {event.status === "All"
+                                        ? "Total Championship Points"
+                                        : "Points Attained"}
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
