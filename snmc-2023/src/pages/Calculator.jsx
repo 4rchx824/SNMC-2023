@@ -4,31 +4,11 @@ import React, { useEffect, useState } from "react";
 // type 2 = 2 input
 const types = [
     {
-        name: "Spoken Number",
-        inputType: 1,
-    },
-    {
-        name: "5 Min Speed Cards",
-        inputType: 2,
-    },
-    {
-        name: "5 Min Binary Digits",
-        inputType: 1,
-    },
-    {
         name: "5 Min Names & Faces",
         inputType: 1,
     },
     {
-        name: "5 Min Random Numbers",
-        inputType: 1,
-    },
-    {
-        name: "5 Min Historic/Future Dates",
-        inputType: 1,
-    },
-    {
-        name: "5 Min Words",
+        name: "5 Min Binary Digits",
         inputType: 1,
     },
     {
@@ -36,12 +16,32 @@ const types = [
         inputType: 1,
     },
     {
+        name: "5 Min Speed Numbers",
+        inputType: 1,
+    },
+    {
+        name: "5 Min Historic/Future Dates",
+        inputType: 1,
+    },
+    {
+        name: "10 Min Cards",
+        inputType: 1,
+    },
+    {
+        name: "5 Min Random Words",
+        inputType: 1,
+    },
+    {
         name: "15 Min Random Numbers",
         inputType: 1,
     },
     {
-        name: "10 Min Speed Cards",
+        name: "Spoken Number",
         inputType: 1,
+    },
+    {
+        name: "5 Min Speed Cards",
+        inputType: 2,
     },
 ];
 
@@ -60,40 +60,45 @@ const Calculate = ({ selectedCalculator }) => {
     useEffect(() => {
         let calculated_value = 0;
 
+        let new_score = parseFloat(rawScore);
+        let time_taken = parseFloat(timeTaken);
+
         switch (type.name) {
             // this one is the 2 values
-            case "5 Min Speed Cards":
-                calculated_value = rawScore * (9386 / timeTaken ** 0.75);
-                break;
-            case "Spoken Number":
-                calculated_value = Math.sqrt(rawScore) * 47.3;
+            case "5 Min Names & Faces":
+                calculated_value = (new_score / 95) * 1000;
                 break;
             case "5 Min Binary Digits":
-                calculated_value = rawScore;
-                break;
-            case "5 Min Names & Faces":
-                calculated_value = rawScore * 10.5263;
-                break;
-            case "5 Min Random Numbers":
-                calculated_value = rawScore * 1.8282;
-                break;
-            case "5 Min Historic/Future Dates":
-                calculated_value = rawScore * 8;
-                break;
-            case "5 Min Words":
-                calculated_value = rawScore * 8;
+                calculated_value = new_score;
                 break;
             case "15 Min Abstract Images":
-                calculated_value = rawScore * 1.6584;
+                calculated_value = (new_score / 697) * 1000;
+                break;
+            case "5 Min Speed Numbers":
+                calculated_value = (new_score / 547) * 1000;
+                break;
+            case "5 Min Historic/Future Dates":
+                calculated_value = (new_score / 125) * 1000;
+                break;
+            case "10 Min Cards":
+                calculated_value = (new_score / 407) * 1000;
+                break;
+            case "5 Min Random Words":
+                calculated_value = (new_score / 125) * 1000;
                 break;
             case "15 Min Random Numbers":
-                calculated_value = rawScore * 1.1111;
+                calculated_value = (new_score / 900) * 1000;
                 break;
-            case "10 Min Speed Cards":
-                calculated_value = rawScore * 2.7397;
+            case "Spoken Number":
+                calculated_value = Math.sqrt(new_score) * 47.3;
+                break;
+            case "5 Min Speed Cards":
+                calculated_value =
+                    new_score === 52
+                        ? 9386 / time_taken ** 0.75
+                        : (130.21 * new_score) / 52;
                 break;
         }
-
         setPts(Math.ceil(calculated_value));
     }, [rawScore, timeTaken]);
     return (
@@ -132,7 +137,7 @@ const Calculate = ({ selectedCalculator }) => {
 
 export const CalculatorBlock = () => {
     const [selectedCalculator, setSelectedCalculator] =
-        useState("Spoken Number");
+        useState("5 Min Names & Faces");
     return (
         <div className="flex flex-col p-4 self-center">
             <div className="flex items-end space-x-4">
@@ -159,9 +164,11 @@ export const CalculatorBlock = () => {
 };
 
 function Calculator() {
-    return <div className="flex flex-grow items-center justify-center">
-        <CalculatorBlock />
-    </div>
+    return (
+        <div className="flex flex-grow items-center justify-center">
+            <CalculatorBlock />
+        </div>
+    );
 }
 
 export default Calculator;
