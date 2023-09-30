@@ -1,7 +1,8 @@
 function useTimeConverter() {
     const convert = (time) => {
         const utcDate = new Date(time);
-        utcDate.setUTCHours(utcDate.getHours() + 8);
+        
+        utcDate.setUTCHours(utcDate.getUTCHours() + 8);
 
         return utcDate;
     };

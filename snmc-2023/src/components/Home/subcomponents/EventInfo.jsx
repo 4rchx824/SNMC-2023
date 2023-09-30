@@ -44,7 +44,7 @@ function EventInfo({ event }) {
                         </span>{" "}
                         <br />
                         {event.last_updated ?? "NA" !== "NA"
-                            ? convert(event.last_updated).toUTCString()
+                            ? convert(event.last_updated).toLocaleString()
                             : "NA"}
                     </h1>
 
